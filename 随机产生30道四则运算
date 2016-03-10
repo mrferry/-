@@ -1,0 +1,58 @@
+#include<iostream>
+#include<time.h>
+using namespace std;
+void main()
+{
+    int num,num1, num2,num3,num4, fuhao, i,a=0,b=0,c=0,d=0,t;
+    srand((int)time(NULL));
+    for (i = 0; i < 30; i++)
+    {
+        num1 = 1 + rand() % 100;//将1到100内的数随机赋予num1，用于整数计算
+        num2 = 1 + rand() % 100;//将1到100内的数随机赋予num2，用于整数计算
+        num3 = 1 + rand() % 100;//将1到100内的数随机赋予num3，用于分数计算
+        num4 = 1 + rand() % 100;//将1到100内的数随机赋予num4，用于分数计算
+        num = 1 + rand() % 2;//随机生成1或2分别表示整数和分数
+        if (num == 1)//整数运算
+        {
+            fuhao = num1 % 4 + 1;//得到的余数加一
+            cout << num1;//第一个数
+            switch (fuhao)//随机运算符
+            {
+            case 1:cout << "+"; break;
+            case 2:cout << "-"; break;
+            case 3:cout << "×"; break;
+            case 4:cout << "÷"; break;
+            }
+            cout << num2 << "=" << endl;//第二个数
+        }
+        if(num==2)
+        {
+            a = num1;
+            b = num2;
+            if (num1 > num2)//比较两个随机数的大小，小的作为分子，大的为分母
+            {
+                t = a;
+                a = b;
+                b = t;
+            }
+            cout << "("<<a << "/" << b<<") ";
+            fuhao = num1 % 4 + 1;
+            switch (fuhao)
+            {
+            case 1:cout << "+"; break;
+            case 2:cout << "-"; break;
+            case 3:cout << "×"; break;
+            case 4:cout << "÷"; break;
+            }
+            c = num3;
+            d = num4;
+            if (num3 > num4)
+            {
+                t = c;
+                c = d;
+                d = t;
+            }
+            cout <<"("<< c << "/" << d<<")"<<"="<<endl;
+        }
+    }
+}
